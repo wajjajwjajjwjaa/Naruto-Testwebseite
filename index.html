@@ -92,11 +92,14 @@
             transform: scale(1.08);
         }
 
-        input {
-            padding: 10px;
-            margin: 6px;
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
             border-radius: 10px;
             border: 1px solid #ccc;
+            font-size: 15px;
         }
 
         .highlight {
@@ -183,7 +186,11 @@
 
     <section>
         <h2>🥗 Gesunde Ernährung</h2>
-        <p>Eine ausgewogene Ernährung ist wichtig für den Körper und die mentale Gesundheit.</p>
+
+        <p>
+            Eine ausgewogene Ernährung ist wichtig für den Körper
+            und die mentale Gesundheit.
+        </p>
 
         <ul>
             <li>Viel Wasser trinken</li>
@@ -195,7 +202,11 @@
 
     <section>
         <h2>🏋️ Fitness & Gym</h2>
-        <p>Regelmäßiges Training verbessert Kraft, Ausdauer und das allgemeine Wohlbefinden.</p>
+
+        <p>
+            Regelmäßiges Training verbessert Kraft, Ausdauer
+            und das allgemeine Wohlbefinden.
+        </p>
 
         <ol>
             <li>Krafttraining</li>
@@ -207,42 +218,94 @@
 
     <section>
         <h2>💧 Wasser-Tracker</h2>
+
         <p>Klicke jedes Mal, wenn du ein Glas Wasser getrunken hast.</p>
 
         <button onclick="addWater()">Glas Wasser getrunken</button>
         <button onclick="resetWater()">Zurücksetzen</button>
 
-        <div class="water-glasses" id="waterDisplay">Noch kein Wasser 😢</div>
-        <div class="box" id="waterMessage">Ziel: 8 Gläser am Tag!</div>
+        <div class="water-glasses" id="waterDisplay">
+            Noch kein Wasser 😢
+        </div>
+
+        <div class="box" id="waterMessage">
+            Ziel: 8 Gläser am Tag!
+        </div>
     </section>
 
     <section>
         <h2>🎲 Zufällige Fitness-Challenge</h2>
+
         <p>Drücke den Button und bekomme eine kleine Challenge.</p>
 
         <button onclick="newChallenge()">Challenge starten</button>
 
-        <div class="box" id="challengeBox">Bereit für deine Challenge?</div>
+        <div class="box" id="challengeBox">
+            Bereit für deine Challenge?
+        </div>
     </section>
 
     <section>
         <h2>🔥 Motivationsspruch</h2>
+
         <p>Manchmal braucht man einfach einen kleinen Push.</p>
 
         <button onclick="newMotivation()">Motivation holen</button>
 
-        <div class="box" id="motivationBox">Du schaffst das!</div>
+        <div class="box" id="motivationBox">
+            Du schaffst das!
+        </div>
     </section>
 
     <section>
         <h2>🧮 Mini BMI-Rechner</h2>
+
         <p>Gib deine Größe und dein Gewicht ein.</p>
 
         <input type="number" id="height" placeholder="Größe in cm">
         <input type="number" id="weight" placeholder="Gewicht in kg">
+
         <button onclick="calculateBMI()">BMI berechnen</button>
 
-        <div class="box" id="bmiResult">Dein Ergebnis erscheint hier.</div>
+        <div class="box" id="bmiResult">
+            Dein Ergebnis erscheint hier.
+        </div>
+    </section>
+
+    <section>
+        <h2>🔥 Kalorienbedarf-Rechner</h2>
+
+        <p>
+            Fülle den Fragebogen aus und berechne deinen
+            ungefähren Tagesbedarf.
+        </p>
+
+        <input type="number" id="calAge" placeholder="Alter">
+        <input type="number" id="calHeight" placeholder="Größe in cm">
+        <input type="number" id="calWeight" placeholder="Gewicht in kg">
+
+        <select id="calGender">
+            <option value="">Geschlecht auswählen</option>
+            <option value="male">Männlich</option>
+            <option value="female">Weiblich</option>
+        </select>
+
+        <select id="calActivity">
+            <option value="">Aktivität auswählen</option>
+            <option value="1.2">Wenig Bewegung</option>
+            <option value="1.375">Leicht aktiv</option>
+            <option value="1.55">Mittel aktiv</option>
+            <option value="1.725">Sehr aktiv</option>
+            <option value="1.9">Extrem aktiv</option>
+        </select>
+
+        <button onclick="calculateCalories()">
+            Kalorienbedarf berechnen
+        </button>
+
+        <div class="box" id="calorieResult">
+            Dein Ergebnis erscheint hier.
+        </div>
     </section>
 
     <section>
@@ -262,6 +325,7 @@
 </footer>
 
 <script>
+
     let waterCount = 0;
 
     function addWater() {
@@ -271,6 +335,7 @@
         if (waterCount >= 8) {
             document.getElementById("waterMessage").innerHTML =
                 "Super! Du hast dein Tagesziel erreicht 🥳";
+
             makeConfetti();
         }
     }
@@ -278,10 +343,13 @@
     function resetWater() {
         waterCount = 0;
         updateWater();
-        document.getElementById("waterMessage").innerHTML = "Ziel: 8 Gläser am Tag!";
+
+        document.getElementById("waterMessage").innerHTML =
+            "Ziel: 8 Gläser am Tag!";
     }
 
     function updateWater() {
+
         let glasses = "";
 
         for (let i = 0; i < waterCount; i++) {
@@ -296,6 +364,7 @@
     }
 
     function newChallenge() {
+
         const challenges = [
             "Mach 10 Kniebeugen!",
             "Trinke ein Glas Wasser!",
@@ -306,11 +375,15 @@
             "Geh 2 Minuten im Zimmer herum!"
         ];
 
-        const random = Math.floor(Math.random() * challenges.length);
-        document.getElementById("challengeBox").innerHTML = challenges[random];
+        const random =
+            Math.floor(Math.random() * challenges.length);
+
+        document.getElementById("challengeBox").innerHTML =
+            challenges[random];
     }
 
     function newMotivation() {
+
         const quotes = [
             "Kleine Schritte führen auch zum Ziel.",
             "Dein Körper kann fast alles, dein Kopf muss nur mitmachen.",
@@ -320,46 +393,153 @@
             "Auch ein kurzer Spaziergang zählt!"
         ];
 
-        const random = Math.floor(Math.random() * quotes.length);
-        document.getElementById("motivationBox").innerHTML = quotes[random];
+        const random =
+            Math.floor(Math.random() * quotes.length);
+
+        document.getElementById("motivationBox").innerHTML =
+            quotes[random];
     }
 
     function calculateBMI() {
-        const height = document.getElementById("height").value / 100;
-        const weight = document.getElementById("weight").value;
-        const result = document.getElementById("bmiResult");
+
+        const height =
+            document.getElementById("height").value / 100;
+
+        const weight =
+            document.getElementById("weight").value;
+
+        const result =
+            document.getElementById("bmiResult");
 
         if (height <= 0 || weight <= 0) {
-            result.innerHTML = "Bitte gib gültige Werte ein.";
+
+            result.innerHTML =
+                "Bitte gib gültige Werte ein.";
+
             return;
         }
 
-        const bmi = (weight / (height * height)).toFixed(1);
+        const bmi =
+            (weight / (height * height)).toFixed(1);
 
         let text = "Dein BMI ist " + bmi + ". ";
 
         if (bmi < 18.5) {
             text += "Du bist eher leicht.";
-        } else if (bmi < 25) {
+        }
+
+        else if (bmi < 25) {
             text += "Du bist im Normalbereich.";
-        } else if (bmi < 30) {
+        }
+
+        else if (bmi < 30) {
             text += "Du bist etwas über dem Normalbereich.";
-        } else {
+        }
+
+        else {
             text += "Du bist deutlich über dem Normalbereich.";
         }
 
         result.innerHTML = text;
     }
 
+    function calculateCalories() {
+
+        const age =
+            Number(document.getElementById("calAge").value);
+
+        const height =
+            Number(document.getElementById("calHeight").value);
+
+        const weight =
+            Number(document.getElementById("calWeight").value);
+
+        const gender =
+            document.getElementById("calGender").value;
+
+        const activity =
+            Number(document.getElementById("calActivity").value);
+
+        const result =
+            document.getElementById("calorieResult");
+
+        if (
+            !age ||
+            !height ||
+            !weight ||
+            !gender ||
+            !activity
+        ) {
+            result.innerHTML =
+                "Bitte fülle alle Felder aus.";
+
+            return;
+        }
+
+        let grundumsatz;
+
+        if (gender === "male") {
+
+            grundumsatz =
+                10 * weight +
+                6.25 * height -
+                5 * age +
+                5;
+        }
+
+        else {
+
+            grundumsatz =
+                10 * weight +
+                6.25 * height -
+                5 * age -
+                161;
+        }
+
+        const tagesbedarf =
+            Math.round(grundumsatz * activity);
+
+        result.innerHTML = `
+            Dein Grundumsatz beträgt ungefähr
+            <span class="highlight">
+                ${Math.round(grundumsatz)} kcal
+            </span>
+            <br><br>
+
+            Dein täglicher Kalorienbedarf liegt bei ungefähr
+            <span class="highlight">
+                ${tagesbedarf} kcal
+            </span>
+        `;
+
+        makeConfetti();
+    }
+
     function makeConfetti() {
-        const emojis = ["🎉", "💚", "🥳", "⭐", "💧"];
+
+        const emojis = [
+            "🎉",
+            "💚",
+            "🥳",
+            "⭐",
+            "💧"
+        ];
 
         for (let i = 0; i < 25; i++) {
-            const confetti = document.createElement("div");
+
+            const confetti =
+                document.createElement("div");
+
             confetti.className = "confetti";
-            confetti.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-            confetti.style.left = Math.random() * 100 + "vw";
-            confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
+
+            confetti.innerHTML =
+                emojis[Math.floor(Math.random() * emojis.length)];
+
+            confetti.style.left =
+                Math.random() * 100 + "vw";
+
+            confetti.style.animationDuration =
+                (Math.random() * 2 + 2) + "s";
 
             document.body.appendChild(confetti);
 
@@ -368,6 +548,7 @@
             }, 4000);
         }
     }
+
 </script>
 
 </body>
