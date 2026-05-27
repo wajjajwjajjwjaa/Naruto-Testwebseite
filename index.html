@@ -18,7 +18,6 @@
         }
 
         header {
-            min-height: 300px;
             background: linear-gradient(135deg, #2e8b57, #56c596);
             color: white;
             text-align: center;
@@ -29,18 +28,16 @@
         header h1 {
             margin: 0;
             font-size: 48px;
-            letter-spacing: 1px;
         }
 
         header p {
             font-size: 20px;
-            margin-top: 15px;
         }
 
         main {
             width: 90%;
             max-width: 1100px;
-            margin: -60px auto 40px;
+            margin: -40px auto 40px;
         }
 
         section {
@@ -50,7 +47,7 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.12);
             animation: fadeUp 1s ease forwards;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: 0.3s;
         }
 
         section:hover {
@@ -60,27 +57,46 @@
 
         h2 {
             color: #2e8b57;
-            font-size: 28px;
         }
 
         p {
             line-height: 1.7;
         }
 
-        ul, ol {
-            padding-left: 22px;
-        }
-
         li {
             margin: 12px 0;
             padding: 8px;
             border-radius: 10px;
-            transition: background 0.3s, transform 0.3s;
+            transition: 0.3s;
         }
 
         li:hover {
             background: #e8f8ef;
             transform: translateX(8px);
+        }
+
+        button {
+            background: #2e8b57;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            margin: 8px 5px 8px 0;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #1f6b42;
+            transform: scale(1.08);
+        }
+
+        input {
+            padding: 10px;
+            margin: 6px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
         }
 
         .highlight {
@@ -91,20 +107,17 @@
             border-radius: 8px;
         }
 
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            background: #2e8b57;
-            color: white;
-            padding: 12px 22px;
-            border-radius: 30px;
-            text-decoration: none;
-            transition: transform 0.3s, background 0.3s;
+        .box {
+            background: #e8f8ef;
+            padding: 18px;
+            border-radius: 15px;
+            margin-top: 15px;
+            font-weight: bold;
         }
 
-        .button:hover {
-            background: #1f6b42;
-            transform: scale(1.08);
+        .water-glasses {
+            font-size: 32px;
+            margin-top: 15px;
         }
 
         footer {
@@ -112,6 +125,14 @@
             color: white;
             text-align: center;
             padding: 20px;
+        }
+
+        .confetti {
+            position: fixed;
+            top: -10px;
+            font-size: 24px;
+            animation: fall 3s linear forwards;
+            z-index: 999;
         }
 
         @keyframes fadeDown {
@@ -136,13 +157,16 @@
             }
         }
 
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         @media (max-width: 700px) {
             header h1 {
-                font-size: 36px;
-            }
-
-            main {
-                width: 94%;
+                font-size: 34px;
             }
         }
     </style>
@@ -150,59 +174,201 @@
 
 <body>
 
-    <header>
-        <h1>Gesundheit & Fitness</h1>
-        <p>Einfach gesund leben durch Ernährung, Bewegung und Motivation</p>
-    </header>
+<header>
+    <h1>Gesundheit & Fitness</h1>
+    <p>Einfach gesund leben durch Ernährung, Bewegung und Motivation</p>
+</header>
 
-    <main>
+<main>
 
-        <section>
-            <h2>🥗 Gesunde Ernährung</h2>
-            <p>
-                Eine ausgewogene Ernährung ist wichtig für den Körper
-                und die mentale Gesundheit.
-            </p>
+    <section>
+        <h2>🥗 Gesunde Ernährung</h2>
+        <p>Eine ausgewogene Ernährung ist wichtig für den Körper und die mentale Gesundheit.</p>
 
-            <ul>
-                <li>Viel Wasser trinken</li>
-                <li>Frisches Gemüse und Obst essen</li>
-                <li>Proteine für Muskelaufbau</li>
-                <li>Wenig Zucker und Fast Food</li>
-            </ul>
-        </section>
+        <ul>
+            <li>Viel Wasser trinken</li>
+            <li>Frisches Gemüse und Obst essen</li>
+            <li>Proteine für Muskelaufbau</li>
+            <li>Wenig Zucker und Fast Food</li>
+        </ul>
+    </section>
 
-        <section>
-            <h2>🏋️ Fitness & Gym</h2>
-            <p>
-                Regelmäßiges Training verbessert Kraft, Ausdauer
-                und das allgemeine Wohlbefinden.
-            </p>
+    <section>
+        <h2>🏋️ Fitness & Gym</h2>
+        <p>Regelmäßiges Training verbessert Kraft, Ausdauer und das allgemeine Wohlbefinden.</p>
 
-            <ol>
-                <li>Krafttraining</li>
-                <li>Cardio</li>
-                <li>Dehnen</li>
-                <li>Genug Schlaf</li>
-            </ol>
-        </section>
+        <ol>
+            <li>Krafttraining</li>
+            <li>Cardio</li>
+            <li>Dehnen</li>
+            <li>Genug Schlaf</li>
+        </ol>
+    </section>
 
-        <section>
-            <h2>💚 Warum Gesundheit wichtig ist</h2>
-            <p>
-                Ein gesunder Lebensstil hilft dabei,
-                <span class="highlight">mehr Energie</span>,
-                bessere Konzentration und ein stärkeres Immunsystem zu haben.
-            </p>
+    <section>
+        <h2>💧 Wasser-Tracker</h2>
+        <p>Klicke jedes Mal, wenn du ein Glas Wasser getrunken hast.</p>
 
-            <a href="#" class="button">Mehr erfahren</a>
-        </section>
+        <button onclick="addWater()">Glas Wasser getrunken</button>
+        <button onclick="resetWater()">Zurücksetzen</button>
 
-    </main>
+        <div class="water-glasses" id="waterDisplay">Noch kein Wasser 😢</div>
+        <div class="box" id="waterMessage">Ziel: 8 Gläser am Tag!</div>
+    </section>
 
-    <footer>
-        <p>Schulprojekt 2026 | Gesundheit & Fitness</p>
-    </footer>
+    <section>
+        <h2>🎲 Zufällige Fitness-Challenge</h2>
+        <p>Drücke den Button und bekomme eine kleine Challenge.</p>
+
+        <button onclick="newChallenge()">Challenge starten</button>
+
+        <div class="box" id="challengeBox">Bereit für deine Challenge?</div>
+    </section>
+
+    <section>
+        <h2>🔥 Motivationsspruch</h2>
+        <p>Manchmal braucht man einfach einen kleinen Push.</p>
+
+        <button onclick="newMotivation()">Motivation holen</button>
+
+        <div class="box" id="motivationBox">Du schaffst das!</div>
+    </section>
+
+    <section>
+        <h2>🧮 Mini BMI-Rechner</h2>
+        <p>Gib deine Größe und dein Gewicht ein.</p>
+
+        <input type="number" id="height" placeholder="Größe in cm">
+        <input type="number" id="weight" placeholder="Gewicht in kg">
+        <button onclick="calculateBMI()">BMI berechnen</button>
+
+        <div class="box" id="bmiResult">Dein Ergebnis erscheint hier.</div>
+    </section>
+
+    <section>
+        <h2>💚 Warum Gesundheit wichtig ist</h2>
+
+        <p>
+            Ein gesunder Lebensstil hilft dabei,
+            <span class="highlight">mehr Energie</span>,
+            bessere Konzentration und ein stärkeres Immunsystem zu haben.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <p>Schulprojekt 2026 | Gesundheit & Fitness</p>
+</footer>
+
+<script>
+    let waterCount = 0;
+
+    function addWater() {
+        waterCount++;
+        updateWater();
+
+        if (waterCount >= 8) {
+            document.getElementById("waterMessage").innerHTML =
+                "Super! Du hast dein Tagesziel erreicht 🥳";
+            makeConfetti();
+        }
+    }
+
+    function resetWater() {
+        waterCount = 0;
+        updateWater();
+        document.getElementById("waterMessage").innerHTML = "Ziel: 8 Gläser am Tag!";
+    }
+
+    function updateWater() {
+        let glasses = "";
+
+        for (let i = 0; i < waterCount; i++) {
+            glasses += "💧";
+        }
+
+        if (waterCount === 0) {
+            glasses = "Noch kein Wasser 😢";
+        }
+
+        document.getElementById("waterDisplay").innerHTML = glasses;
+    }
+
+    function newChallenge() {
+        const challenges = [
+            "Mach 10 Kniebeugen!",
+            "Trinke ein Glas Wasser!",
+            "Mach 20 Sekunden Plank!",
+            "Tanze 30 Sekunden wild herum!",
+            "Mach 10 Hampelmänner!",
+            "Strecke dich wie eine Katze!",
+            "Geh 2 Minuten im Zimmer herum!"
+        ];
+
+        const random = Math.floor(Math.random() * challenges.length);
+        document.getElementById("challengeBox").innerHTML = challenges[random];
+    }
+
+    function newMotivation() {
+        const quotes = [
+            "Kleine Schritte führen auch zum Ziel.",
+            "Dein Körper kann fast alles, dein Kopf muss nur mitmachen.",
+            "Heute stärker als gestern!",
+            "Gesundheit ist dein größter Reichtum.",
+            "Du musst nicht perfekt sein, nur dranbleiben.",
+            "Auch ein kurzer Spaziergang zählt!"
+        ];
+
+        const random = Math.floor(Math.random() * quotes.length);
+        document.getElementById("motivationBox").innerHTML = quotes[random];
+    }
+
+    function calculateBMI() {
+        const height = document.getElementById("height").value / 100;
+        const weight = document.getElementById("weight").value;
+        const result = document.getElementById("bmiResult");
+
+        if (height <= 0 || weight <= 0) {
+            result.innerHTML = "Bitte gib gültige Werte ein.";
+            return;
+        }
+
+        const bmi = (weight / (height * height)).toFixed(1);
+
+        let text = "Dein BMI ist " + bmi + ". ";
+
+        if (bmi < 18.5) {
+            text += "Du bist eher leicht.";
+        } else if (bmi < 25) {
+            text += "Du bist im Normalbereich.";
+        } else if (bmi < 30) {
+            text += "Du bist etwas über dem Normalbereich.";
+        } else {
+            text += "Du bist deutlich über dem Normalbereich.";
+        }
+
+        result.innerHTML = text;
+    }
+
+    function makeConfetti() {
+        const emojis = ["🎉", "💚", "🥳", "⭐", "💧"];
+
+        for (let i = 0; i < 25; i++) {
+            const confetti = document.createElement("div");
+            confetti.className = "confetti";
+            confetti.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
+
+            document.body.appendChild(confetti);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, 4000);
+        }
+    }
+</script>
 
 </body>
 </html>
